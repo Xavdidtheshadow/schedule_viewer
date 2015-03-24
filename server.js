@@ -14,6 +14,6 @@ app.use(express.static(__dirname + '/public'));
 
 // require('./app/routes')(app); 
 
-app.listen(port);   
+app.listen(port);
 console.log('Magic happens on port ' + port);
 exports = module.exports = app;
