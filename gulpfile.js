@@ -1,11 +1,14 @@
+var paths = {
+  js: ['public/js/*.js']
+};
+
 var gulp = require('gulp');
+var jshint = require('gulp-jshint');
+var wiredep = require('wiredep').stream;
 
 gulp.task('default', function() {
   // place code for your default task here
 });
-
-
-var wiredep = require('wiredep').stream;
 
 gulp.task('bower', function () {
   gulp.src('./public/index.html')
@@ -13,4 +16,14 @@ gulp.task('bower', function () {
       
     }))
     .pipe(gulp.dest('./public'));
+});
+
+gulp.task('lint', function() {
+  return gulp.src(paths.js)
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+
+gulp.task('watch', function(){
+  gulp.watch(paths.js, ['lint']);
 });

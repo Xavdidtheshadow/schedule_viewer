@@ -14,16 +14,23 @@
     <!-- endbower -->
     
     <!-- custom styles -->
-    <!-- <link rel="stylesheet" href="css/the.css">  -->
+    <link rel="stylesheet" href="css/the.css"> 
+    <link rel="stylesheet" href="css/spinner.css"> 
 </head>
 
 <body ng-app="refViewer">
     <div class="mid container">
-        <h1> this is cool </h1>
+        
         <!-- ANGULAR DYNAMIC CONTENT -->
-        <!-- <div ui-view>
-            Pulling Team Info    
-        </div> -->
+        <div ui-view>
+            <div class="spinner">
+              <div class="rect1"></div>
+              <div class="rect2"></div>
+              <div class="rect3"></div>
+              <div class="rect4"></div>
+              <div class="rect5"></div>
+            </div> 
+        </div>
     </div>
 
     <!-- JS -->
@@ -35,8 +42,8 @@
     <!-- endbower -->
 
 
-    <!-- ANGULAR CUSTOM -->
-    <!-- <script src="js/app.js"></script> -->
+    <!-- ANGULAR APP -->
+    <script src="js/app.js"></script>
 
     <!-- GA -->
     <script>
@@ -48,6 +55,5 @@
     //   ga('create', 'UA-58728153-1', 'auto');
     //   ga('send', 'pageview');
     </script>
-</div>
 </body>
 </html>

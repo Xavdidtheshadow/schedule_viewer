@@ -1,0 +1,2 @@
+gulp: gulp watch
+web: PORT=3000 nodemon

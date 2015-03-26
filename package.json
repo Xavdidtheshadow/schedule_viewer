@@ -5,7 +5,7 @@
   "description": "World Cup 8 front-end",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "bower install"
   },
   "author": "David Brownman",
   "license": "ISC",
@@ -14,11 +14,9 @@
     "express": "^4.12.3"
   },
   "devDependencies": {
+    "bower": "~1.3.12",
     "gulp": "^3.8.11",
-    "wiredep": "^2.2.2",
-    "bower": "~1.3.12"
-  },
-  "scripts": {
-    "postinstall": "bower install"
+    "gulp-jshint": "^1.9.4",
+    "wiredep": "^2.2.2"
   }
 }
