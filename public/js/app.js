@@ -4,16 +4,22 @@ var app = angular.module('refViewer', ['ui.router'])
     '$urlRouterProvider', 
     '$locationProvider', 
     function($stateProvider, $urlRouterProvider, $locationProvider){
+      var root = 'http://quidapi.herokuapp.com/';
+
+      // generate an api call from endpoint
+      gen = function(endpoint){
+        return ['$http', function($http){
+              return $http.get(root + endpoint);
+          }];
+      };
+
       $stateProvider
         .state('home', {
           url: '/',
           templateUrl: 'views/home.html',
           controller: 'MainController',
           resolve: {
-            teams: ['$http', function($http){
-              // return db.getTeams();
-              return $http.get('http://quidapi.herokuapp.com/teams');
-            }]
+            teams: gen('teams')
           }
         });
 

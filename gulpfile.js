@@ -1,14 +1,12 @@
 var paths = {
-  js: ['public/js/*.js']
+  js: ['public/js/*.js'],
+  scss: ['source/*.scss']
 };
 
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
+var sass = require('gulp-sass');
 var wiredep = require('wiredep').stream;
-
-gulp.task('default', function() {
-  // place code for your default task here
-});
 
 gulp.task('bower', function () {
   gulp.src('./public/index.html')
@@ -24,6 +22,14 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('default'));
 });
 
+gulp.task('sass', function () {
+  gulp.src('./source/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('./public/css'));
+});
+
 gulp.task('watch', function(){
   gulp.watch(paths.js, ['lint']);
+  gulp.watch(paths.scss, ['sass']);
 });
+
