@@ -1,5 +1,27 @@
-// colors and stuff
+@import 'media';
 
+body {
+    @include tablet {
+        padding: 30px;
+    }
+}
+
+// the goods
 .game {
     border: 1px dashed black;
+    padding: 15px;
+    // width: 200px;
+    // height: 200px;
+    margin: auto;
+}
+
+.flexbox {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.item {
+    // order: 1;
 }

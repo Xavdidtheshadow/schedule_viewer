@@ -1,6 +1,17 @@
 <h1> this is cool, {{message}} </h1>
-<div ng-repeat="team in teams">
-    
-{{team.name}}
-
+<div class="flexbox">
+  <div ng-repeat="game in games">
+    <div class="item game">
+      <p>{{game.team_a.name}}</p>
+      VS
+      <p>{{game.team_b.name}}</p>
+    </div>
+  </div>
+  <div ng-repeat="game in games">
+    <div class="item game">
+      <p>{{game.team_a.name}}</p>
+      VS
+      <p>{{game.team_b.name}}</p>
+    </div>
+  </div>
 </div>

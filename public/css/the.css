@@ -1,2 +1,19 @@
+@media screen and (min-width: 768px) {
+  body {
+    padding: 30px; } }
+
 .game {
-  border: 1px dashed black; }
+  border: 1px dashed black;
+  padding: 15px;
+  margin: auto; }
+
+.flexbox {
+  border: 1px solid black;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 10px; }
+

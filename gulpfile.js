@@ -1,3 +1,4 @@
+// config
 var paths = {
   js: ['public/js/*.js'],
   scss: ['source/*.scss'],
@@ -5,12 +6,15 @@ var paths = {
   haml_index: ['source/index.haml']
 };
 
+// includes
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
 var wiredep = require('wiredep').stream;
+var autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('bower', function () {
+// TASKS
+gulp.task('bower', function() {
   gulp.src('./public/index.html')
     .pipe(wiredep({
       
@@ -29,6 +33,10 @@ gulp.task('lint', function() {
 gulp.task('sass', function () {
   gulp.src(paths.scss)
     .pipe(sass())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(gulp.dest('./public/css'));
 });
 
@@ -45,7 +53,7 @@ gulp.task('sass', function () {
 // });
 
 // 
-gulp.task('watch', function(){
+gulp.task('watch', ['sass'], function(){
   gulp.watch(paths.js, ['lint']);
   gulp.watch(paths.scss, ['sass']);
   // gulp.watch('source/*.haml', ['haml', 'haml_index']);

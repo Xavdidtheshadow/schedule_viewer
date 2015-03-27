@@ -19,7 +19,7 @@ var app = angular.module('refViewer', ['ui.router'])
           templateUrl: 'views/home.html',
           controller: 'MainController',
           resolve: {
-            teams: gen('teams')
+            games: gen('games')
           }
         });
 
@@ -27,7 +27,7 @@ var app = angular.module('refViewer', ['ui.router'])
       $locationProvider.html5Mode(true);
   }])
 
-  .controller('MainController', ['$scope', 'teams', function($scope, teams){
+  .controller('MainController', ['$scope', 'games', function($scope, games){
     $scope.message = 'yo';
-    $scope.teams = teams.data;
+    $scope.games = games.data;
   }]);
