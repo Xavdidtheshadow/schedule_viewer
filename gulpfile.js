@@ -1,6 +1,8 @@
 var paths = {
   js: ['public/js/*.js'],
-  scss: ['source/*.scss']
+  scss: ['source/*.scss'],
+  haml: ['source/*.haml', '!source/index.haml'],
+  haml_index: ['source/index.haml']
 };
 
 var gulp = require('gulp');
@@ -16,20 +18,36 @@ gulp.task('bower', function () {
     .pipe(gulp.dest('./public'));
 });
 
+// lint js
 gulp.task('lint', function() {
   return gulp.src(paths.js)
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
+// compile sass
 gulp.task('sass', function () {
-  gulp.src('./source/*.scss')
+  gulp.src(paths.scss)
     .pipe(sass())
     .pipe(gulp.dest('./public/css'));
 });
 
+// gulp.task('haml', function () {
+//   gulp.src(paths.haml)
+//     .pipe(haml({compiler: 'visionmedia'}))
+//     .pipe(gulp.dest('./public/views'));
+// });
+
+// gulp.task('haml_index', function () {
+//   gulp.src(paths.haml_index)
+//     .pipe(haml({compiler: 'visionmedia'}))
+//     .pipe(gulp.dest('./public'));
+// });
+
+// 
 gulp.task('watch', function(){
   gulp.watch(paths.js, ['lint']);
   gulp.watch(paths.scss, ['sass']);
+  // gulp.watch('source/*.haml', ['haml', 'haml_index']);
 });
 
