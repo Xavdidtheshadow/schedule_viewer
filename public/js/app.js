@@ -30,4 +30,5 @@ var app = angular.module('refViewer', ['ui.router'])
   .controller('MainController', ['$scope', 'games', function($scope, games){
     $scope.message = 'yo';
     $scope.games = games.data;
+    $scope.timeslots = ["9:00am", "9:40am", "10:20am", "11:00am", "11:40am", "12:20pm", "1:00pm", "1:40pm", "2:20pm", "3:00pm"];
   }]);

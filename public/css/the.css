@@ -4,16 +4,59 @@
 
 .game {
   border: 1px dashed black;
-  padding: 15px;
-  margin: auto; }
+  padding: 10px;
+  margin-top: 10px; }
+  @media screen and (min-width: 768px) {
+    .game {
+      width: 300px; } }
+  .game .right {
+    text-align: right; }
+  .game .info {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px; }
+  .game table {
+    width: 100%;
+    margin-top: 5px; }
 
 .flexbox {
-  border: 1px solid black;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-content: space-around;
+  -ms-flex-line-pack: distribute;
+  align-content: space-around;
+  border: 1px solid black;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 10px; }
+  padding: 0 10px 10px 10px;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around; }
+  @media screen and (min-width: 768px) {
+    .flexbox {
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center; } }
 
+.vertbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .vertbox .flexbox:not(:first-child) {
+    margin-top: 10px; }

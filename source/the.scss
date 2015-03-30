@@ -9,19 +9,63 @@ body {
 // the goods
 .game {
     border: 1px dashed black;
-    padding: 15px;
-    // width: 200px;
+    padding: 10px;
+    margin-top: 10px;
+    @include tablet {
+        width: 300px;
+    }
     // height: 200px;
-    margin: auto;
+
+    .right {
+        // padding-left: 5%;
+        // justify-content: flex-end;
+        text-align: right;
+    }
+
+    .top {
+        // padding-bottom: 5px;
+    }
+
+    // new try
+    .info {
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid grey;
+        padding-bottom: 5px;
+    }
+
+    table {
+        // border: 1px dotted blue;
+        width: 100%;
+        margin-top: 5px;
+    }
 }
+
 
 .flexbox {
-    border: 1px solid black;
     display: flex;
+    flex-direction: column;
+    align-content: space-around;
+
+    @include tablet {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    border: 1px solid black;
+    
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 0 10px 10px 10px;
+    justify-content: space-around;
+    // align-items: center;
 }
 
-.item {
-    // order: 1;
+// the big schedule where each row is a timeslot
+.vertbox {
+    display: flex;
+    flex-direction: column;
+
+    .flexbox:not(:first-child) {
+        margin-top: 10px;
+    }
 }
