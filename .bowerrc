@@ -1,6 +1,6 @@
 {
     "directory": "public/libs",
     "scripts": {
-        "postinstall": "gulp bower"
+        
     }
 }
