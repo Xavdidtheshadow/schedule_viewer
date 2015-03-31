@@ -1,9 +1,7 @@
 // config
 var paths = {
   js: ['public/js/*.js'],
-  scss: ['source/*.scss'],
-  haml: ['source/*.haml', '!source/index.haml'],
-  haml_index: ['source/index.haml']
+  scss: ['source/*.scss']
 };
 
 // includes
@@ -16,9 +14,7 @@ var autoprefixer = require('gulp-autoprefixer');
 // TASKS
 gulp.task('bower', function() {
   gulp.src('./public/index.html')
-    .pipe(wiredep({
-      
-    }))
+    .pipe(wiredep())
     .pipe(gulp.dest('./public'));
 });
 
@@ -56,6 +52,5 @@ gulp.task('sass', function () {
 gulp.task('watch', ['sass'], function(){
   gulp.watch(paths.js, ['lint']);
   gulp.watch(paths.scss, ['sass']);
-  // gulp.watch('source/*.haml', ['haml', 'haml_index']);
 });
 
