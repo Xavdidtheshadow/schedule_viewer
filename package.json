@@ -5,7 +5,7 @@
   "description": "World Cup 8 front-end",
   "main": "server.js",
   "scripts": {
-    "postinstall": "bower install --production"
+    "postinstall": "bower install"
   },
   "author": "David Brownman",
   "license": "ISC",
