@@ -1,6 +1,6 @@
 {
     "directory": "public/libs",
     "scripts": {
-        "postinstall": "if [ "$NODE_ENV" = "production" ]; then gulp bower; fi"
+        "postinstall": "if [ \"$NODE_ENV\" = production ]; then gulp bower; fi"
     }
 }
