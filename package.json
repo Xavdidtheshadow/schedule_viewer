@@ -5,6 +5,7 @@
   "description": "World Cup 8 front-end",
   "main": "server.js",
   "scripts": {
+    "preinstall": "npm cache clean",
     "postinstall": "bower install"
   },
   "author": "David Brownman",
