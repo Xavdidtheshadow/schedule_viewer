@@ -26,9 +26,18 @@ var app = angular.module('refViewer', ['ui.router'])
       $urlRouterProvider.otherwise('/');
       $locationProvider.html5Mode(true);
   }])
-
   .controller('MainController', ['$scope', 'games', function($scope, games){
+    $scope.timeslots = ["9:00am", "9:40am", "10:40am", "11:20am"];
     $scope.message = 'yo';
-    $scope.games = games.data;
-    $scope.timeslots = ["9:00am", "9:40am", "10:20am", "11:00am", "11:40am", "12:20pm", "1:00pm", "1:40pm", "2:20pm", "3:00pm"];
+
+    var g = games.data;
+    
+    $scope.games = g.reduce(function (mapped, item) {
+      if (!mapped[item.timeslot]) {
+        mapped[item.timeslot] = [];
+      }
+
+      mapped[item.timeslot].push(item);
+      return mapped;
+    }, []);
   }]);

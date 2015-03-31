@@ -8,7 +8,7 @@
   margin-top: 10px; }
   @media screen and (min-width: 768px) {
     .game {
-      width: 300px; } }
+      width: 200px; } }
   .game .right {
     text-align: right; }
   .game .info {
@@ -58,5 +58,5 @@
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column; }
-  .vertbox .flexbox:not(:first-child) {
-    margin-top: 10px; }
+  .vertbox .timeslot:not(:first-child) {
+    margin-top: 15px; }
