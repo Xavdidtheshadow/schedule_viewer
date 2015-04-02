@@ -10,17 +10,29 @@
   @media screen and (min-width: 768px) {
     .game {
       width: 200px; } }
-  .game .right {
-    text-align: right; }
   .game .info {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
-    justify-content: space-around;
+    justify-content: space-around; }
+  .game .cols {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .game .split {
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .game .header {
     border-bottom: 1px solid grey;
-    padding-bottom: 5px; }
+    padding-bottom: 5px;
+    margin-bottom: 5px; }
+  .game .footer {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid grey; }
   .game table {
     width: 100%;
     margin-top: 5px; }
@@ -59,5 +71,3 @@
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column; }
-  .vertbox .flexbox:not(:first-child) {
-    margin-top: 15px; }

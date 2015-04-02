@@ -1,0 +1,52 @@
+<h1> this is cool, {{message}} </h1> <a ui-sref="teams">TEAMS</a>
+<div class="vertbox">
+  <div ng-repeat="ts in games">
+    <h2> {{timeslots[ts[0].timeslot]}} </h2>
+    <div class="flexbox">
+      <div class="item game" ng-repeat="game in ts | orderBy: ['pitch']">
+        <div class="info header">
+          <div> Pitch {{game.pitch + 1}} </div>
+          <!-- <div> {{timeslots[game.timeslot]}} </div> -->
+        </div>
+        <div class="info header cols">
+          <div class="info split">
+            <div> {{game.team_a.name}} </div>
+            <div> {{game.team_a_score}} </div>
+          </div>
+          <div class="info split">
+            <div> {{game.team_b.name}} </div>
+            <div> {{game.team_b_score}} </div>
+          </div>
+
+          <!-- <div> HR:  </div> -->
+          <!-- <div> Crews: {{['A1a', 'A1b'].join(', ')}} </div> -->
+        </div>
+        <!-- <table>
+          <tr>
+            <td> {{game.team_a.name}} </td>
+            <td class="right"> {{game.team_a_score}} </td>
+          </tr>
+          <tr>
+            <td> {{game.team_b.name}} </td>
+            <td class="right"> {{game.team_b_score}} </td>
+          </tr>
+        </table> -->
+        <div class="info cols">
+          <div class="info split">
+            <div>HR</div>
+            <div>{{game.head_referee.name}}</div>
+          </div>
+          <div class="info split">
+            <div>Crews</div>
+            <div>{{['A1a', 'A1b'].join(', ')}}</div>
+          </div>
+
+          <!-- <div> HR:  </div> -->
+          <!-- <div> Crews: {{['A1a', 'A1b'].join(', ')}} </div> -->
+        </div>
+      <!-- end of game -->
+      </div>
+    <!-- end of inner box -->
+    </div>
+  </div>
+</div>

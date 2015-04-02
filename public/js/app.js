@@ -5,7 +5,6 @@ var app = angular.module('refViewer', ['ui.router'])
     '$locationProvider', 
     function($stateProvider, $urlRouterProvider, $locationProvider){
       var root = 'https://quidapi.herokuapp.com/';
-
       // generate an api call from endpoint
       gen = function(endpoint){
         return ['$http', function($http){
@@ -14,21 +13,39 @@ var app = angular.module('refViewer', ['ui.router'])
       };
 
       $stateProvider
-        .state('home', {
+        .state('timeline', {
           url: '/',
-          templateUrl: 'views/home.html',
-          controller: 'MainController',
+          templateUrl: 'views/timeline.html',
+          controller: 'TimelineController',
           resolve: {
             games: gen('games')
+          }
+        })
+        .state('teams', {
+          url: '/teams',
+          templateUrl: 'views/teams.html',
+          controller: 'TeamsController',
+          resolve: {
+            teams: gen('teams')
           }
         });
 
       $urlRouterProvider.otherwise('/');
       $locationProvider.html5Mode(true);
   }])
-  .controller('MainController', ['$scope', 'games', function($scope, games){
-    $scope.timeslots = ["9:00am", "9:40am", "10:40am", "11:20am"];
+  .run(['$rootScope', function($rootScope){
+    // this is basically a global
+    $rootScope.timeslots = ["9:00am", "9:40am", "10:40am", "11:20am"];
+  }])
+  // .directive(['game', function(){
+  //   return {
+  //     templateUrl: 'views/_game.html'
+  //   };
+  // }])
+  .controller('TimelineController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
+    $scope.timeslots = $rootScope.timeslots;
     $scope.message = 'yo';
+    $rootScope.header = 'WC8 Timeline';
 
     var g = games.data;
     
@@ -40,4 +57,8 @@ var app = angular.module('refViewer', ['ui.router'])
       mapped[item.timeslot].push(item);
       return mapped;
     }, []);
+  }])
+  .controller('TeamsController', ['$rootScope','$scope', 'teams', function($rootScope, $scope, teams){
+    $scope.teams = teams.data;
+    $rootScope.header = 'WC8 Teams';
   }]);

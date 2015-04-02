@@ -13,6 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 
 // require('./app/routes')(app); 
+app.get('*', function(req, res) {
+  res.sendFile(__dirname + '/public/views/index.html');
+});
 
 app.listen(port);
 console.log('Magic happens on port ' + port);
