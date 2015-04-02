@@ -15,6 +15,7 @@ body {
     // background-color: pink;
     @include tablet {
         width: 200px;
+        margin-left: 3px;
     }
     // height: 200px;
 
