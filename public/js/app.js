@@ -5,8 +5,8 @@ var app = angular.module('refViewer', ['ui.router'])
     '$locationProvider', 
     function($stateProvider, $urlRouterProvider, $locationProvider){
       // poor mans env variables
-      // var root = 'https://quidapi.herokuapp.com/';
-      var root = 'http://localhost:1337/';
+      var root = 'https://quidapi.herokuapp.com/';
+      // var root = 'http://localhost:1337/';
 
       // generate an api call from endpoint
       // this got out of hand quickly
