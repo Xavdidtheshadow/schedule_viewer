@@ -1,7 +1,7 @@
 <h1> {{team.name}} </h1>
 
-<ul>
-<li ng-repeat="game in games | orderBy: 'timeslot'">
+
+<div ng-repeat="game in games | orderBy: 'timeslot'">
 
 <!--   <b> {{ref._id === game.head_referee._id ? 'HR' : 'AR'}} </b> - 
   {{game.team_a.rank}}. <a href="/team/{{game.team_a._id}}">{{game.team_a.name}}</a>
@@ -33,5 +33,4 @@
     </div>
   </div>
   </div>
-</li>
-</ul>
+</div>
