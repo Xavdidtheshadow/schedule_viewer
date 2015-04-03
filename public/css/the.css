@@ -9,7 +9,8 @@
   width: 100%; }
   @media screen and (min-width: 768px) {
     .game {
-      width: 200px; } }
+      width: 200px;
+      margin-left: 3px; } }
   .game .info {
     display: -webkit-flex;
     display: -ms-flexbox;

@@ -4,11 +4,16 @@ var app = angular.module('refViewer', ['ui.router'])
     '$urlRouterProvider', 
     '$locationProvider', 
     function($stateProvider, $urlRouterProvider, $locationProvider){
-      var root = 'https://quidapi.herokuapp.com/';
+      // poor mans env variables
+      // var root = 'https://quidapi.herokuapp.com/';
+      var root = 'http://localhost:1337/';
+
       // generate an api call from endpoint
       gen = function(endpoint){
-        return ['$http', function($http){
-              return $http.get(root + endpoint);
+        return ['$http', '$stateParams', function($http, $stateParams){
+            var id = '/';
+            if ($stateParams.id) {id += $stateParams.id;}
+            return $http.get(root + endpoint + id);
           }];
       };
 
@@ -27,6 +32,14 @@ var app = angular.module('refViewer', ['ui.router'])
           controller: 'TeamsController',
           resolve: {
             teams: gen('teams')
+          }
+        })
+        .state('ref', {
+          url: '/ref/:id',
+          templateUrl: 'views/ref.html',
+          controller: 'RefController',
+          resolve: {
+            ref: gen('people')
           }
         });
 
@@ -61,4 +74,7 @@ var app = angular.module('refViewer', ['ui.router'])
   .controller('TeamsController', ['$rootScope','$scope', 'teams', function($rootScope, $scope, teams){
     $scope.teams = teams.data;
     $rootScope.header = 'WC8 Teams';
+  }])
+  .controller('RefController', ['$rootScope','$scope', 'ref', function($rootScope, $scope, ref){
+    $scope.ref = ref.data;
   }]);
