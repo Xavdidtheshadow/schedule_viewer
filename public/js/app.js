@@ -9,11 +9,13 @@ var app = angular.module('refViewer', ['ui.router'])
       var root = 'http://localhost:1337/';
 
       // generate an api call from endpoint
-      gen = function(endpoint){
+      // this got out of hand quickly
+      gen = function(endpoint, tail){
         return ['$http', '$stateParams', function($http, $stateParams){
             var id = '/';
+            tail = typeof tail !== 'undefined' ? tail : '';
             if ($stateParams.id) {id += $stateParams.id;}
-            return $http.get(root + endpoint + id);
+            return $http.get(root + endpoint + id + tail);
           }];
       };
 
@@ -34,12 +36,20 @@ var app = angular.module('refViewer', ['ui.router'])
             teams: gen('teams')
           }
         })
+        .state('team', {
+          url: '/team/:id',
+          templateUrl: 'views/team.html',
+          controller: 'TeamController',
+          resolve: {
+            games: gen('teams', '/games')
+          }
+        })
         .state('ref', {
           url: '/ref/:id',
           templateUrl: 'views/ref.html',
           controller: 'RefController',
           resolve: {
-            ref: gen('people')
+            games: gen('people', '/games')
           }
         });
 
@@ -48,7 +58,24 @@ var app = angular.module('refViewer', ['ui.router'])
   }])
   .run(['$rootScope', function($rootScope){
     // this is basically a global
-    $rootScope.timeslots = ["9:00am", "9:40am", "10:40am", "11:20am"];
+    $rootScope.timeslots = [
+      "9:00 AM", 
+      "9:40 AM", 
+      "10:40 AM", 
+      "11:20 AM", 
+      "12:20 PM", 
+      "1:00 PM", 
+      "2:00 PM",
+      "2:40 PM", 
+      "4:00 PM", 
+      "4:40 PM", 
+      "5:40 PM", 
+      "6:20 PM", 
+      "7:20 PM", 
+      "8:00 PM", 
+      "9:00 PM", 
+      "9:40 PM" 
+    ];
   }])
   // .directive(['game', function(){
   //   return {
@@ -75,6 +102,15 @@ var app = angular.module('refViewer', ['ui.router'])
     $scope.teams = teams.data;
     $rootScope.header = 'WC8 Teams';
   }])
-  .controller('RefController', ['$rootScope','$scope', 'ref', function($rootScope, $scope, ref){
-    $scope.ref = ref.data;
+  .controller('TeamController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
+    var g = games.data;
+    $scope.games = g.games;
+    $scope.team = g.team;
+    $rootScope.header = 'WC8 Team' + 'Schedule';
+  }])
+  .controller('RefController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
+    var g = games.data;
+    $scope.ref = g.ref;
+    $scope.games = g.games;
+    $rootScope.header = $scope.ref.name + 'Schedule';
   }]);

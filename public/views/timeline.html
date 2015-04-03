@@ -10,18 +10,18 @@
         </div>
         <div class="info header cols">
           <div class="info split">
-            <div> {{game.team_a.rank}}. <a href="/team/{{game.team_a._id}}">{{game.team_a.name}}</a> </div>
+            <div> {{game.team_a.rank}}. <a ui-sref="team({id: game.team_a._id})">{{game.team_a.name}}</a> </div>
             <div> {{game.team_a_score}} </div>
           </div>
           <div class="info split">
-            <div> {{game.team_b.rank}}. <a href="/team/{{game.team_b._id}}">{{game.team_b.name}}</a> </div>
+            <div> {{game.team_b.rank}}. <a ui-sref="team({id: game.team_b._id})">{{game.team_b.name}}</a> </div>
             <div> {{game.team_b_score}} </div>
           </div>
         </div>
         <div class="info cols">
           <div class="info split">
             <div>HR</div>
-            <div> <a href="/ref/{{game.head_referee._id}}">{{game.head_referee.name}}</a> </div>
+            <div> <a ui-sref="ref({id: game.head_referee._id})">{{game.head_referee.name}}</a> </div>
           </div>
           <div class="info split">
             <div>Crews</div>
