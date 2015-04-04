@@ -1,4 +1,4 @@
-<h1> this is cool, {{message}} </h1> <a ui-sref="teams">TEAMS</a>
+<!-- <h1> this is cool, {{message}} </h1>  -->
 <div class="vertbox">
   <div ng-repeat="ts in games">
     <h2> {{timeslots[ts[0].timeslot]}} </h2>
@@ -25,7 +25,7 @@
           </div>
           <div class="info split">
             <div>Crews</div>
-            <div>{{['A1a', 'A1b'].join(', ')}}</div>
+            <div>{{game.crews.join(', ')}}</div>
           </div>
         </div>
       <!-- end of game -->

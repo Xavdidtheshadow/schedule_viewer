@@ -5,8 +5,8 @@ var app = angular.module('refViewer', ['ui.router'])
     '$locationProvider', 
     function($stateProvider, $urlRouterProvider, $locationProvider){
       // poor mans env variables
-      var root = 'https://quidapi.herokuapp.com/';
-      // var root = 'http://localhost:1337/';
+      // var root = 'https://quidapi.herokuapp.com/';
+      var root = 'http://localhost:1337/';
 
       // generate an api call from endpoint
       // this got out of hand quickly
@@ -42,6 +42,14 @@ var app = angular.module('refViewer', ['ui.router'])
           controller: 'TeamController',
           resolve: {
             games: gen('teams', '/games')
+          }
+        })
+        .state('refs', {
+          url: '/refs',
+          templateUrl: 'views/refs.html',
+          controller: 'RefsController',
+          resolve: {
+            refs: gen('people')
           }
         })
         .state('ref', {
@@ -107,6 +115,10 @@ var app = angular.module('refViewer', ['ui.router'])
     $scope.games = g.games;
     $scope.team = g.team;
     $rootScope.header = 'WC8 Team' + 'Schedule';
+  }])
+  .controller('RefsController', ['$rootScope','$scope', 'refs', function($rootScope, $scope, refs){
+    $scope.refs = refs.data;
+    $rootScope.header = 'WC8 Refs';
   }])
   .controller('RefController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
     var g = games.data;
