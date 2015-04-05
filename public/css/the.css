@@ -104,4 +104,11 @@ body {
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  margin-bottom: 15px; }
+  @media screen and (min-width: 768px) {
+    .vertbox {
+      margin-bottom: 0; } }
+  .vertbox .listitem {
+    font-size: 1.2em;
+    padding-top: 3px; }

@@ -133,9 +133,18 @@ body {
 .vertbox {
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
+    @include tablet {
+        margin-bottom: 0;
+    }
 
     .flexbox:not(:first-child) {
         // h2 handles the margin instead
         // margin-top: 15px;
+    }
+
+    .listitem {
+        font-size: 1.2em;
+        padding-top: 3px;
     }
 }
