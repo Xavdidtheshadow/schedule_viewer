@@ -7,7 +7,10 @@
   vs 
   {{game.team_b.rank}}. <a href="/team/{{game.team_b._id}}">{{game.team_b.name}}</a> 
   on pitch {{game.pitch + 1}} at {{timeslots[game.timeslot]}}. -->
-
+<h3> Members </h3>
+<div ng-repeat="ref in refs | orderBy: 'name'">
+  {{ref.name}}
+</div>
 <div class="item game">
   <div class="info header">
     <div> Pitch {{game.pitch + 1}} </div>

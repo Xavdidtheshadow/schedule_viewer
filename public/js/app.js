@@ -65,7 +65,8 @@ var app = angular.module('refViewer', ['ui.router'])
           templateUrl: 'views/crew.html',
           controller: 'CrewController',
           resolve: {
-            games: gen('crews', '/games')
+            games: gen('crews', '/games'),
+            refs: gen('crews')
           }
         });
 
@@ -138,5 +139,6 @@ var app = angular.module('refViewer', ['ui.router'])
     var g = games.data;
     $scope.crew = g.crew;
     $scope.games = g.games;
+    $scope.refs = g.people;
     $rootScope.header = $scope.crew.name + 'Schedule';
   }]);
