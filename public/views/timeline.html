@@ -25,7 +25,9 @@
           </div>
           <div class="info split">
             <div>Crews</div>
-            <div>{{game.crews.join(', ')}}</div>
+            <div ng-repeat="crew in game.crews">
+              <a ui-sref="crew({id: crew})">{{crew}}</a>
+            </div>
           </div>
         </div>
       <!-- end of game -->
