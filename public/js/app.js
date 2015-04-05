@@ -5,8 +5,8 @@ var app = angular.module('refViewer', ['ui.router'])
     '$locationProvider', 
     function($stateProvider, $urlRouterProvider, $locationProvider){
       // poor mans env variables
-      var root = 'https://quidapi.herokuapp.com/';
-      // var root = 'http://localhost:1337/';
+      // var root = 'https://quidapi.herokuapp.com/';
+      var root = 'http://localhost:1337/';
 
       // generate an api call from endpoint
       // this got out of hand quickly
@@ -94,11 +94,13 @@ var app = angular.module('refViewer', ['ui.router'])
       "9:40 PM" 
     ];
   }])
-  // .directive(['game', function(){
-  //   return {
-  //     templateUrl: 'views/_game.html'
-  //   };
-  // }])
+  .directive('boxscore', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'views/_game.html',
+      scope: {game: '='}
+    };
+  })
   .controller('TimelineController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
     $scope.timeslots = $rootScope.timeslots;
     $scope.message = 'yo';
@@ -115,6 +117,7 @@ var app = angular.module('refViewer', ['ui.router'])
       return mapped;
     }, []);
   }])
+  // well this is cute
   .controller('TeamsController', ['$rootScope','$scope', 'teams', function($rootScope, $scope, teams){
     $scope.teams = teams.data;
     $rootScope.header = 'WC8 Teams';
@@ -135,10 +138,11 @@ var app = angular.module('refViewer', ['ui.router'])
     $scope.games = g.games;
     $rootScope.header = $scope.ref.name + 'Schedule';
   }])
-  .controller('CrewController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
+  .controller('CrewController', ['$rootScope','$scope', 'games', 'refs', function($rootScope, $scope, games, refs){
     var g = games.data;
+    var r = refs.data;
     $scope.crew = g.crew;
     $scope.games = g.games;
-    $scope.refs = g.people;
+    $scope.refs = r.people;
     $rootScope.header = $scope.crew.name + 'Schedule';
   }]);

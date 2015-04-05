@@ -1,14 +1,28 @@
-<div class="info">
-  <div> Pitch {{game.pitch + 1}} </div>
-  <!-- <div> {{timeslots[game.timeslot]}} </div> -->
+<div class="item game">
+  <div class="info header">
+    <div> Pitch {{game.pitch + 1}} </div>
+    <div> {{$root.timeslots[game.timeslot]}} </div>
+  </div>
+  <div class="info header cols">
+    <div class="info split">
+      <div> {{game.team_a.rank}}. <a ui-sref="team({id: game.team_a._id})">{{game.team_a.name}}</a> </div>
+      <div> {{game.team_a_score}} </div>
+    </div>
+    <div class="info split">
+      <div> {{game.team_b.rank}}. <a ui-sref="team({id: game.team_b._id})">{{game.team_b.name}}</a> </div>
+      <div> {{game.team_b_score}} </div>
+    </div>
+  </div>
+  <div class="info cols">
+    <div class="info split">
+      <div>HR</div>
+      <div> <a ui-sref="ref({id: game.head_referee._id})">{{game.head_referee.name}}</a> </div>
+    </div>
+    <div class="info split">
+      <div>Crews</div>
+      <div ng-repeat="crew in game.crews">
+        <a ui-sref="crew({id: crew})">{{crew}}</a>
+      </div>
+    </div>
+  </div>
 </div>
-<table>
-  <tr>
-    <td> {{game.team_a.name}} </td>
-    <td class="right"> {{game.team_a_score}} </td>
-  </tr>
-  <tr>
-    <td> {{game.team_b.name}} </td>
-    <td class="right"> {{game.team_b_score}} </td>
-  </tr>
-</table>

@@ -1,38 +1,12 @@
 <!-- <h1> this is cool, {{message}} </h1>  -->
 <div class="vertbox">
+<div my-customer></div>
   <div ng-repeat="ts in games">
     <h2> {{timeslots[ts[0].timeslot]}} </h2>
     <div class="flexbox">
-      <div class="item game" ng-repeat="game in ts | orderBy: ['pitch']">
-        <div class="info header">
-          <div> Pitch {{game.pitch + 1}} </div>
-          <div> {{timeslots[game.timeslot]}} </div>
-        </div>
-        <div class="info header cols">
-          <div class="info split">
-            <div> {{game.team_a.rank}}. <a ui-sref="team({id: game.team_a._id})">{{game.team_a.name}}</a> </div>
-            <div> {{game.team_a_score}} </div>
-          </div>
-          <div class="info split">
-            <div> {{game.team_b.rank}}. <a ui-sref="team({id: game.team_b._id})">{{game.team_b.name}}</a> </div>
-            <div> {{game.team_b_score}} </div>
-          </div>
-        </div>
-        <div class="info cols">
-          <div class="info split">
-            <div>HR</div>
-            <div> <a ui-sref="ref({id: game.head_referee._id})">{{game.head_referee.name}}</a> </div>
-          </div>
-          <div class="info split">
-            <div>Crews</div>
-            <div ng-repeat="crew in game.crews">
-              <a ui-sref="crew({id: crew})">{{crew}}</a>
-            </div>
-          </div>
-        </div>
-      <!-- end of game -->
+      <div ng-repeat="game in ts | orderBy: ['pitch']">
+        <boxscore game="game"></boxscore>
       </div>
-    <!-- end of inner box -->
     </div>
   </div>
 </div>

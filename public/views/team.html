@@ -1,36 +1,6 @@
 <h1> {{team.name}} </h1>
 
-
+<h3> Schedule </h3>
 <div ng-repeat="game in games | orderBy: 'timeslot'">
-
-<!--   <b> {{ref._id === game.head_referee._id ? 'HR' : 'AR'}} </b> - 
-  {{game.team_a.rank}}. <a href="/team/{{game.team_a._id}}">{{game.team_a.name}}</a>
-  vs 
-  {{game.team_b.rank}}. <a href="/team/{{game.team_b._id}}">{{game.team_b.name}}</a> 
-  on pitch {{game.pitch + 1}} at {{timeslots[game.timeslot]}}. -->
-
-<div class="item game">
-  <div class="info header">
-    <div> Pitch {{game.pitch + 1}} </div>
-    <div> {{timeslots[game.timeslot]}} </div>
-  </div>
-  <div class="info header cols">
-    <div class="info split">
-      <div> <a href="/team/{{game.team_a._id}}">{{game.team_a.name}}</a> </div>
-    </div>
-    <div class="info split">
-      <div> <a href="/team/{{game.team_b._id}}">{{game.team_b.name}}</a> </div>
-    </div>
-  </div>
-  <div class="info cols">
-    <div class="info split">
-      <div>HR</div>
-      <div> <a href="/ref/{{game.head_referee._id}}">{{game.head_referee.name}}</a> </div>
-    </div>
-    <div class="info split">
-      <div>Crews</div>
-      <div>{{game.crews.join(', ')}}</div>
-    </div>
-  </div>
-  </div>
+  <boxscore game="game"></boxscore>
 </div>

@@ -1,5 +1,10 @@
-<h1> {{crew.name}} </h1>
-
+<h2>Crew - {{crew}} </h2>
+<h3> Members </h3>
+<div ng-repeat="ref in refs | orderBy: 'name'">
+  <a ui-sref="ref({id: ref._id})">{{ref.name}}</a>
+  (<a ui-sref="team({id: ref.teams[0]._id})">{{ref.teams[0].name}}</a>)
+</div>
+<h3> Schedule </h3>
 <div ng-repeat="game in games | orderBy: 'timeslot'">
 
 <!--   <b> {{ref._id === game.head_referee._id ? 'HR' : 'AR'}} </b> - 
@@ -7,32 +12,6 @@
   vs 
   {{game.team_b.rank}}. <a href="/team/{{game.team_b._id}}">{{game.team_b.name}}</a> 
   on pitch {{game.pitch + 1}} at {{timeslots[game.timeslot]}}. -->
-<h3> Members </h3>
-<div ng-repeat="ref in refs | orderBy: 'name'">
-  {{ref.name}}
-</div>
-<div class="item game">
-  <div class="info header">
-    <div> Pitch {{game.pitch + 1}} </div>
-    <div> {{timeslots[game.timeslot]}} </div>
-  </div>
-  <div class="info header cols">
-    <div class="info split">
-      <div> <a href="/team/{{game.team_a._id}}">{{game.team_a.name}}</a> </div>
-    </div>
-    <div class="info split">
-      <div> <a href="/team/{{game.team_b._id}}">{{game.team_b.name}}</a> </div>
-    </div>
-  </div>
-  <div class="info cols">
-    <div class="info split">
-      <div>HR</div>
-      <div> <a href="/ref/{{game.head_referee._id}}">{{game.head_referee.name}}</a> </div>
-    </div>
-    <div class="info split">
-      <div>Crews</div>
-      <div>{{game.crews.join(', ')}}</div>
-    </div>
-  </div>
-  </div>
+
+  <boxscore game="game"></boxscore>
 </div>
