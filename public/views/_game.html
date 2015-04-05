@@ -6,6 +6,7 @@
       </a>
     </div>
     <div> {{$root.timeslots[game.timeslot]}} </div>
+    <div ng-if="game.duration !== 0"> {{game.duration}} </div>
   </div>
   <div class="info header cols">
     <div class="info split">

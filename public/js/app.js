@@ -111,9 +111,17 @@ var app = angular.module('refViewer', ['ui.router'])
     return {
       restrict: 'E',
       templateUrl: 'views/_game.html',
-      scope: {game: '='}
+      scope: {game: '='},
+      controller: 'GameController'
     };
   })
+  .controller('GameController', ['$scope', function($scope){
+    if ($scope.game.duration > 0){
+      var minutes = Math.floor($scope.game.duration / 60);
+      var seconds = $scope.game.duration - minutes * 60;
+      $scope.game.duration = [minutes, seconds].join(':');
+    }
+  }])
   .controller('TimelineController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
     $scope.timeslots = $rootScope.timeslots;
     $rootScope.header = 'WC8 Timeline';
