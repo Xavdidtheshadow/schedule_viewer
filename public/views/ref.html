@@ -1,4 +1,9 @@
-<h2> {{ref.name}} (<a ui-sref="team({id: ref.teams[0]._id})">{{ref.teams[0].name}}</a>)</h2>
+<h2> 
+  {{ref.name}} 
+  <span ng-if="ref.teams[0]">
+    (<a ui-sref="team({id: ref.teams[0]._id})">{{ref.teams[0].name}}</a>)
+  </span>
+</h2>
 
 <h3> Schedule </h3>
 

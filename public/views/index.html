@@ -21,10 +21,29 @@
 
 <body>
   <div class="mid container-fluid">
-    <h1> World Cup 8 </h1>
-    <a ui-sref="timeline">TIMELINE</a>
-    <a ui-sref="teams">TEAMS</a>
-    <a ui-sref="refs">REFS</a>
+    <nav role="navigation" class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a ui-sref="timeline">
+            <p class="brand navbar-brand">World Cup 8</p>
+          </a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            <li ui-sref-active="active">
+              <a ui-sref="timeline">Schedule</a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="teams">Teams</a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="refs">Referees</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <!-- ANGULAR DYNAMIC CONTENT -->
     <div ui-view>
       <div class="spinner">

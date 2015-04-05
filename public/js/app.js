@@ -93,6 +93,10 @@ var app = angular.module('refViewer', ['ui.router'])
       "9:00 PM", 
       "9:40 PM" 
     ];
+
+    // $rootScope.lastName = function(o) {
+    //   return o.name.split(' ')[1];
+    // };
   }])
   .directive('boxscore', function(){
     return {
@@ -126,7 +130,7 @@ var app = angular.module('refViewer', ['ui.router'])
     var g = games.data;
     $scope.games = g.games;
     $scope.team = g.team;
-    $rootScope.header = 'WC8 Team' + 'Schedule';
+    $rootScope.header = $scope.team.name + ' Schedule';
   }])
   .controller('RefsController', ['$rootScope','$scope', 'refs', function($rootScope, $scope, refs){
     $scope.refs = refs.data;
@@ -136,7 +140,7 @@ var app = angular.module('refViewer', ['ui.router'])
     var g = games.data;
     $scope.ref = g.ref;
     $scope.games = g.games;
-    $rootScope.header = $scope.ref.name + 'Schedule';
+    $rootScope.header = $scope.ref.name + ' Schedule';
   }])
   .controller('CrewController', ['$rootScope','$scope', 'games', 'refs', function($rootScope, $scope, games, refs){
     var g = games.data;
@@ -144,5 +148,8 @@ var app = angular.module('refViewer', ['ui.router'])
     $scope.crew = g.crew;
     $scope.games = g.games;
     $scope.refs = r.people;
-    $rootScope.header = $scope.crew.name + 'Schedule';
+    if (angular.isArray($scope.crew)) {
+      $scope.crew = $scope.crew.join('/');
+    }
+    $rootScope.header = $scope.crew + ' Schedule';
   }]);

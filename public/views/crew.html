@@ -2,7 +2,9 @@
 <h3> Members </h3>
 <div ng-repeat="ref in refs | orderBy: 'name'">
   <a ui-sref="ref({id: ref._id})">{{ref.name}}</a>
-  (<a ui-sref="team({id: ref.teams[0]._id})">{{ref.teams[0].name}}</a>)
+  <span ng-if="ref.teams[0]">
+    (<a ui-sref="team({id: ref.teams[0]._id})">{{ref.teams[0].name}}</a>)
+  </span>
 </div>
 <h3> Schedule </h3>
 <div ng-repeat="game in games | orderBy: 'timeslot'">
