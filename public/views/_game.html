@@ -1,16 +1,30 @@
-<div class="item game">
+<div class="item game" ng-class="game.rt_snitch ? 'completed' : ''">
   <div class="info header">
-    <div> Pitch {{game.pitch + 1}} </div>
+    <div> 
+      <a ui-sref="pitch({query: game.pitch})">
+        Pitch {{game.pitch + 1}} 
+      </a>
+    </div>
     <div> {{$root.timeslots[game.timeslot]}} </div>
   </div>
   <div class="info header cols">
     <div class="info split">
       <div> {{game.team_a.rank}}. <a ui-sref="team({id: game.team_a._id})">{{game.team_a.name}}</a> </div>
-      <div> {{game.team_a_score}} </div>
+      <div> 
+        {{game.team_a_score}}<!-- 
+         --><span ng-if="game.rt_snitch === game.team_a._id">*</span><!-- 
+         --><span ng-if="game.ot_snitch === game.team_a._id">^</span><!-- 
+         --><span ng-if="game.sd_snitch === game.team_a._id">$</span>
+      </div>
     </div>
     <div class="info split">
       <div> {{game.team_b.rank}}. <a ui-sref="team({id: game.team_b._id})">{{game.team_b.name}}</a> </div>
-      <div> {{game.team_b_score}} </div>
+      <div> 
+        {{game.team_b_score}}<!-- 
+         --><span ng-if="game.rt_snitch === game.team_b._id">*</span><!-- 
+         --><span ng-if="game.ot_snitch === game.team_b._id">^</span><!-- 
+         --><span ng-if="game.sd_snitch === game.team_b._id">$</span>
+      </div>
     </div>
   </div>
   <div class="info cols">

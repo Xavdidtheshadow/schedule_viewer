@@ -5,7 +5,11 @@ body {
       padding: 30px; } }
 
 .navbar {
+  padding-top: 15px;
   border-radius: 0; }
+  @media screen and (min-width: 768px) {
+    .navbar {
+      padding-top: 0; } }
   .navbar a {
     color: #000; }
   .navbar .brand {
@@ -71,7 +75,7 @@ body {
   -webkit-align-content: space-around;
   -ms-flex-line-pack: distribute;
   align-content: space-around;
-  border: 1px solid black;
+  border: 1px solid #1966ab;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -87,6 +91,12 @@ body {
       -webkit-align-items: center;
       -ms-flex-align: center;
       align-items: center; } }
+
+.no-border {
+  border: none; }
+
+.completed {
+  border: 1px solid #1966ab; }
 
 .vertbox {
   display: -webkit-flex;

@@ -12,6 +12,10 @@ body {
 }
 
 .navbar {
+    padding-top: 15px;
+    @include tablet {
+        padding-top: 0;
+    }
     border-radius: 0;
     a {
         color: #000;
@@ -109,12 +113,20 @@ body {
         align-items: center;
     }
 
-    border: 1px solid black;
+    border: 1px solid $blue;
     
     flex-wrap: wrap;
     padding: 0 10px 10px 10px;
     justify-content: space-around;
     // align-items: center;
+}
+
+.no-border {
+    border: none;
+}
+
+.completed {
+    border: 1px solid $blue;
 }
 
 // the big schedule where each row is a timeslot

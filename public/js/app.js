@@ -12,9 +12,10 @@ var app = angular.module('refViewer', ['ui.router'])
       // this got out of hand quickly
       gen = function(endpoint, tail){
         return ['$http', '$stateParams', function($http, $stateParams){
-            var id = '/';
+            var id = '';
             tail = typeof tail !== 'undefined' ? tail : '';
-            if ($stateParams.id) {id += $stateParams.id;}
+            if ($stateParams.id) {id += '/' + $stateParams.id;}
+            if ($stateParams.query) {endpoint += $stateParams.query;}
             return $http.get(root + endpoint + id + tail);
           }];
       };
@@ -26,6 +27,14 @@ var app = angular.module('refViewer', ['ui.router'])
           controller: 'TimelineController',
           resolve: {
             games: gen('games')
+          }
+        })
+        .state('pitch', {
+          url: '/pitch/:query',
+          templateUrl: 'views/pitch.html',
+          controller: 'PitchController',
+          resolve: {
+            games: gen('games?pitch=')
           }
         })
         .state('teams', {
@@ -107,7 +116,6 @@ var app = angular.module('refViewer', ['ui.router'])
   })
   .controller('TimelineController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
     $scope.timeslots = $rootScope.timeslots;
-    $scope.message = 'yo';
     $rootScope.header = 'WC8 Timeline';
 
     var g = games.data;
@@ -120,6 +128,10 @@ var app = angular.module('refViewer', ['ui.router'])
       mapped[item.timeslot].push(item);
       return mapped;
     }, []);
+  }])
+  .controller('PitchController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
+    $scope.games = games.data;
+    $rootScope.header = 'WC8 Teams';
   }])
   // well this is cute
   .controller('TeamsController', ['$rootScope','$scope', 'teams', function($rootScope, $scope, teams){
