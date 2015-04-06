@@ -26,7 +26,9 @@ body {
   width: 100%; }
   @media screen and (min-width: 768px) {
     .box-holder {
-      width: 200px; } }
+      width: 250px; }
+      .box-holder .game {
+        width: 100%; } }
 
 .game {
   border: 1px dashed #1966ab;
@@ -53,7 +55,8 @@ body {
     display: flex;
     -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
-    justify-content: space-around; }
+    justify-content: space-around;
+    margin: 5px; }
   .game .cols {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;

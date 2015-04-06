@@ -44,7 +44,10 @@ body {
 .box-holder {
     width: 100%;
     @include tablet {
-        width: 200px;
+        width: 250px;
+        .game {
+            width: 100%;
+        }
     }
 }
 
@@ -78,6 +81,7 @@ body {
     .info {
         display: flex;
         justify-content: space-around;
+        margin: 5px;
         // align-content: space-around;
     }
 
