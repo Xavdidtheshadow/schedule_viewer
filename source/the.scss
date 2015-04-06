@@ -75,23 +75,10 @@ body {
         border: 1px solid $blue;
     }
 
-    .top {
-        // padding-bottom: 5px;
-    }
-
-    // new try
     .info {
         display: flex;
         justify-content: space-around;
         // align-content: space-around;
-    }
-
-    .cols {
-        flex-direction: column;
-    }
-
-    .split {
-        justify-content: space-between;
     }
 
     .header {
@@ -144,12 +131,33 @@ body {
     // align-items: center;
 }
 
+.bigbox {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 10px 10px;
+}
+
 .no-border {
     border: none;
 }
 
+.skinny {
+    border: none;
+    @include tablet {
+        width: 22%;
+    }
+}
+
 .completed {
     border: 1px solid $blue;
+}
+
+.cols {
+    flex-direction: column;
+}
+
+.split {
+    justify-content: space-between;
 }
 
 // the big schedule where each row is a timeslot
@@ -170,4 +178,12 @@ body {
         font-size: 1.2em;
         padding-top: 3px;
     }
+
+    .right {
+        text-align: right;
+    }
+}
+
+.little {
+    margin: 0;
 }

@@ -1,23 +1,65 @@
-<h3> 
-  <div class="inline">{{game.team_a.rank}}. <a ui-sref="team({id:game.team_a._id})">{{game.team_a.name}}</a> </div>
-  <div class="inline"> vs </div>
-  <div class="inline"> {{game.team_b.rank}}. <a ui-sref="team({id:game.team_b._id})">{{game.team_b.name}}</a> </div>
-</h3>
+<div class="vertbox noborder skinny game">
+  <!-- scores -->
+  <div class="bigbox">
+    <h3>{{game.team_a.rank}}. <a ui-sref="team({id:game.team_a._id})">{{game.team_a.name}}</a> </h3>
+    <h3> 
+      {{game.team_a_score}}<!-- 
+       --><span ng-if="game.rt_snitch === game.team_a._id">*</span><!-- 
+       --><span ng-if="game.ot_snitch === game.team_a._id">^</span><!-- 
+       --><span ng-if="game.sd_snitch === game.team_a._id">$</span>
+    </h3>  
+  </div>
 
-<p ng-if="game.head_referee">
-  Head Referee: <a ui-sref="ref({id: game.head_referee._id})">{{game.head_referee.name}}</a> 
-</p>
-<p ng-if="game.snitch">
-  Snitch: <a ui-sref="ref({id:game.snitch._id})">{{game.snitch.name}}</a> 
-</p>
+  <div class="flexbox no-border"><h3>VS</h3></div>
+  
+  <div class="bigbox">
+    <h3> {{game.team_b.rank}}. <a ui-sref="team({id:game.team_b._id})">{{game.team_b.name}}</a> </h3>
+    <h3> {{game.team_b_score}}<!-- 
+       --><span ng-if="game.rt_snitch === game.team_b._id">*</span><!-- 
+       --><span ng-if="game.ot_snitch === game.team_b._id">^</span><!-- 
+       --><span ng-if="game.sd_snitch === game.team_b._id">$</span>
+    </h3>  
+  </div>
+</div>
+<hr/>
 
-<p> Crew ({{game.crews.join('/')}})</p>
-<ul>
-  <li ng-repeat="ref in refs | orderBy: 'name'">
-    <a ui-sref="ref({id: ref._id})">{{ref.name}}</a> 
-  </li>
-</ul>
-
-<p ng-if="game.staff"> 
-  Staff: <a ui-sref="team({id:game.staff._id})">{{game.staff.name}}</a>
-</p>
+<div class="vertbox skinny">
+  <!-- pitch -->
+  <div class="bigbox">
+    <div> Where/When </div>
+    <div> Pitch {{game.pitch + 1}} @ {{$root.timeslots[game.timeslot]}} EDT</div>
+  </div>
+  <!-- duration -->
+  <div class="bigbox" ng-if="duration > 0">
+    <div> Duration </div>
+    <div> {{game.duration}} </div>
+  </div>
+  <!-- snitch -->
+  <div class="bigbox" ng-if="game.snitch">
+    <div> Snitch </div>
+    <a ui-sref="ref({id:game.snitch._id})">{{game.snitch.name}}</a> 
+  </div>
+  <!-- HR -->
+  <div class="bigbox" ng-if="game.head_referee">
+    <div> Head Referee </div> 
+    <a ui-sref="ref({id: game.head_referee._id})">{{game.head_referee.name}}</a> 
+  </div>
+  <!-- Crew -->
+  <div class="bigbox" ng-if="game.crews">
+    <div> Crew ({{game.crews.join('/')}})</div>
+      <div class="little vertbox">
+        <!-- i need this BR if the first ref has a long name -->
+        <!-- <br/> -->
+        <div class="right" ng-repeat="ref in refs | orderBy: 'name'">
+          <a ui-sref="ref({id: ref._id})">{{ref.name}}</a> 
+        </div>
+      </div>
+  </div>
+  <!-- staff -->
+  <div class="bigbox" ng-if="game.staff">
+    <div> 
+      Staff
+    </div>
+    <a ui-sref="team({id:game.staff._id})">{{game.staff.name}}</a>
+  </div>
+</div>

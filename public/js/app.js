@@ -54,7 +54,7 @@ var app = angular.module('refViewer', ['ui.router'])
           }
         })
         .state('refs', {
-          url: '/refs',
+          url: '/people',
           templateUrl: 'views/refs.html',
           controller: 'RefsController',
           resolve: {
@@ -62,7 +62,7 @@ var app = angular.module('refViewer', ['ui.router'])
           }
         })
         .state('ref', {
-          url: '/ref/:id',
+          url: '/people/:id',
           templateUrl: 'views/ref.html',
           controller: 'RefController',
           resolve: {
@@ -185,5 +185,10 @@ var app = angular.module('refViewer', ['ui.router'])
     var g = game.data;
     $scope.refs = g.refs;
     $scope.game = g.game;
+    if ($scope.game.duration > 0){
+      var minutes = Math.floor($scope.game.duration / 60);
+      var seconds = $scope.game.duration - minutes * 60;
+      $scope.game.duration = [minutes, seconds].join(':');
+    }
     // $rootScope.header = $scope.ref.name + ' Schedule';
   }]);
