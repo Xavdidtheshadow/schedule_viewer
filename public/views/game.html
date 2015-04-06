@@ -11,7 +11,7 @@
   Snitch: <a ui-sref="ref({id:game.snitch._id})">{{game.snitch.name}}</a> 
 </p>
 
-<p> Crew </p>
+<p> Crew ({{game.crews.join('/')}})</p>
 <ul>
   <li ng-repeat="ref in refs | orderBy: 'name'">
     <a ui-sref="ref({id: ref._id})">{{ref.name}}</a> 
