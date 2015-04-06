@@ -1,0 +1,80 @@
+1.1|Lone Star
+1.38|Wiz. of Westwood
+1.2|The Lost Boys
+1.39|Clone Star
+1.3|L.A. Gambits
+1.37|T.C. Frost
+1.4|Texas State
+1.40|Falcon Warriors
+1.5|North Carolina
+1.36|Ohio Univ.
+1.6|Q.C. Boston
+1.35|Osos de Muerte
+1.7|Kansas
+1.34|Oklahoma Baptist
+1.8|The Warriors
+1.33|George Mason
+1.9|Michigan
+1.32|Silver Phoenix
+1.10|NYU
+1.30|Tribe
+1.11|Ball State
+1.31|RCQC
+1.12|S.B. Blacktips
+1.29|Macaulay
+1.13|Miami (FL)
+1.26|Capital Madness
+1.14|Central Michigan
+1.27|Boston Univ.
+1.15|West. Washington
+1.28|Michigan State
+1.16|RIT
+1.25|Missouri
+1.17|Oklahoma State
+1.23|Tennessee Tech
+1.18|Richmond
+1.21|Florida
+1.19|Northern Arizona
+1.24|Loyola (NO)
+1.20|Penn State
+1.22|Miami (OH)
+2.1|Maryland
+2.40|Austin Quidditch
+2.2|Ohio State
+2.39|Lock Haven
+2.3|Texas
+2.38|Illinois State
+2.4|Florida's Finest
+2.37|Crimson Warhawks
+2.5|Baylor
+2.34|Harvard
+2.6|Tufts
+2.33|Purdue
+2.7|Bowling Green
+2.35|Long Beach F.Q.
+2.8|British Columbia
+2.36|VCU
+2.9|UCLA
+2.30|Coll. of Charleston
+2.10|RPI
+2.31|Indiana
+2.11|Emerson
+2.32|Southern Storm
+2.12|S.V. Skrewts
+2.29|South Carolina
+2.13|Arizona Q.C.
+2.27|Texas A&M
+2.14|Minnesota
+2.26|Sam Houston State
+2.15|Arkansas
+2.28|South Florida
+2.16|Blue Mountain Q.C.
+2.25|Arizona State
+2.17|Crimson Elite
+2.23|UT- San Antonio
+2.18|Villanova
+2.22|Hofstra
+2.19|Appalachian
+2.24|Rochester
+2.20|Texas Tech
+2.21|Virginia

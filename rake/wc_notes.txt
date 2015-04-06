@@ -1,0 +1,50 @@
+What's left:
+
+login for using HR dropdown to assign
+
+more descriptive team (w/l for previous games)
+
+######################################################
+teams made of 3-4 crews
+
+############################
+
+SAT
+4 rounds
+    2 pair
+        2 timeslots
+            10 games
+
+we know the first round
+
+for each pair, we pick 2 crews
+
+takeaways: 
+    rate crews?
+
+
+for each timeslot, each pitch will be assigned 2 crews
+    we will pick the match based on the crews
+        we will pick a game based on the pitch
+        will will pick a HR based on the game
+
+game on pitch
+crews on pitch
+HR's on pitch
+
+##############################
+
+mirrored pairs
+
+##############################
+timeline
+teams
+person
+pitch
+crew
+
+##############################
+Crew has people, person has crew?
+games.find({crews: {$elemMatch: {ID: 1}}})  
+############################################
+
