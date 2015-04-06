@@ -179,15 +179,24 @@ var app = angular.module('refViewer', ['ui.router'])
     $rootScope.header = $scope.ref.name + ' Schedule';
 
     $scope.ar = function(i){
+      if ($scope.ref._id === $scope.games[i].head_referee._id){return false;}
       var reffing = false;
       $scope.games[i].crews.forEach(function(c){
-        console.log('checking', c);
         if ($scope.ref.crews.indexOf(c) >= 0){reffing = true;}
       });
       return reffing;
     };
     $scope.playing = function(i){
       return [$scope.games[i].team_a._id, $scope.games[i].team_b._id].indexOf($scope.ref.team._id ) >= 0;
+    };
+
+    $scope.vs = function(i){
+      if ($scope.games[i].team_a._id === $scope.ref.team._id) {
+        return $scope.games[i].team_b.rank+'. '+$scope.games[i].team_b.name;
+      }
+      else {
+        return $scope.games[i].team_a.rank+'. '+$scope.games[i].team_a.name;
+      }
     };
 
   }])

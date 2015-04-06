@@ -23,7 +23,7 @@
         Assistant Reffing
       </span>
       <span ng-if="playing($index)">
-        Playing
+        vs {{vs($index)}}
       </span>
       <span ng-if="ref.team._id === game.staff._id">
         Staffing
