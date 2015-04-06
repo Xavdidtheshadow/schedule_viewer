@@ -54,6 +54,14 @@ body {
     -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
     justify-content: space-around; }
+  .game .cols {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .game .split {
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
   .game .header {
     border-bottom: 1px solid #1966ab;
     padding-bottom: 5px;
@@ -122,15 +130,16 @@ body {
 .completed {
   border: 1px solid #1966ab; }
 
-.cols {
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column; }
-
 .split {
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between; }
+
+.lined a {
+  border-bottom: 1px dotted #1966ab; }
+  .lined a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #1966ab; }
 
 .vertbox {
   display: -webkit-flex;

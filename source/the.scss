@@ -81,6 +81,15 @@ body {
         // align-content: space-around;
     }
 
+    .cols {
+        flex-direction: column;
+    }
+
+    .split {
+        justify-content: space-between;
+    }
+
+
     .header {
         border-bottom: 1px solid $blue;
         padding-bottom: 5px;
@@ -152,12 +161,18 @@ body {
     border: 1px solid $blue;
 }
 
-.cols {
-    flex-direction: column;
-}
-
 .split {
     justify-content: space-between;
+}
+
+.lined {
+    a {
+        border-bottom: 1px dotted $blue;
+        &:hover {
+            text-decoration: none;
+            border-bottom: 1px solid $blue;
+        }
+    }
 }
 
 // the big schedule where each row is a timeslot

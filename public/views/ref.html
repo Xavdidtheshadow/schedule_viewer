@@ -1,18 +1,34 @@
 <h2> 
   {{ref.name}} 
-  <span ng-if="ref.teams[0]">
-    (<a ui-sref="team({id: ref.teams[0]._id})">{{ref.teams[0].name}}</a>)
+  <span ng-if="ref.team">
+    (<a ui-sref="team({id: ref.team._id})">{{ref.team.name}}</a>)
   </span>
 </h2>
 
+<h3>Ref Crews</h3>
+<p>{{ref.crews.join(', ')}}</p>
+
 <h3> Schedule </h3>
-
-<div ng-repeat="game in games | orderBy: 'timeslot'">
-
-<!--   <b> {{ref._id === game.head_referee._id ? 'HR' : 'AR'}} </b> - 
-  {{game.team_a.rank}}. <a href="/team/{{game.team_a._id}}">{{game.team_a.name}}</a>
-  vs 
-  {{game.team_b.rank}}. <a href="/team/{{game.team_b._id}}">{{game.team_b.name}}</a> 
-  on pitch {{game.pitch + 1}} at {{timeslots[game.timeslot]}}. -->
-  <boxscore game="game"></boxscore>
+<div class="vertbox skinny">
+  <div class="bigbox split lined" ng-repeat="game in games | orderBy: 'timeslot'">
+    <div> {{$root.timeslots[game.timeslot]}} </div>
+    <div><b><a ui-sref="game({id: game._id})">
+      <span ng-if="ref._id === game.head_referee._id">
+        Head Refffing
+      </span>
+      <span ng-if="ref._id === game.snitch._id">
+        Snitching
+      </span>
+      <span ng-if="ar($index)">
+        Assistant Reffing
+      </span>
+      <span ng-if="playing($index)">
+        Playing
+      </span>
+      <span ng-if="ref.team._id === game.staff._id">
+        Staffing
+      </span>
+    </a></b></div>
+    <div> Pitch {{game.pitch + 1}} </div>
+  </div>
 </div>

@@ -169,6 +169,19 @@ var app = angular.module('refViewer', ['ui.router'])
     $scope.ref = g.ref;
     $scope.games = g.games;
     $rootScope.header = $scope.ref.name + ' Schedule';
+
+    $scope.ar = function(i){
+      var reffing = false;
+      $scope.games[i].crews.forEach(function(c){
+        console.log('checking', c);
+        if ($scope.ref.crews.indexOf(c) >= 0){reffing = true;}
+      });
+      return reffing;
+    };
+    $scope.playing = function(i){
+      return [$scope.games[i].team_a._id, $scope.games[i].team_b._id].indexOf($scope.ref.team._id ) >= 0;
+    };
+
   }])
   .controller('CrewController', ['$rootScope','$scope', 'games', 'refs', function($rootScope, $scope, games, refs){
     var g = games.data;
