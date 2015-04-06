@@ -77,6 +77,14 @@ var app = angular.module('refViewer', ['ui.router'])
             games: gen('crews', '/games'),
             refs: gen('crews')
           }
+        })
+        .state('game', {
+          url: '/game/:id',
+          templateUrl: 'views/game.html',
+          controller: 'GameController',
+          resolve: {
+            game: gen('games','?crews=1')
+          }
         });
 
       $urlRouterProvider.otherwise('/');
@@ -110,12 +118,12 @@ var app = angular.module('refViewer', ['ui.router'])
   .directive('boxscore', function(){
     return {
       restrict: 'E',
-      templateUrl: 'views/_game.html',
+      templateUrl: 'views/_boxscore.html',
       scope: {game: '='},
-      controller: 'GameController'
+      controller: 'BoxscoreController'
     };
   })
-  .controller('GameController', ['$scope', function($scope){
+  .controller('BoxscoreController', ['$scope', function($scope){
     if ($scope.game.duration > 0){
       var minutes = Math.floor($scope.game.duration / 60);
       var seconds = $scope.game.duration - minutes * 60;
@@ -172,4 +180,10 @@ var app = angular.module('refViewer', ['ui.router'])
       $scope.crew = $scope.crew.join('/');
     }
     $rootScope.header = $scope.crew + ' Schedule';
+  }])
+  .controller('GameController', ['$rootScope','$scope', 'game', function($rootScope, $scope, game){
+    var g = game.data;
+    $scope.refs = g.refs;
+    $scope.game = g.game;
+    // $rootScope.header = $scope.ref.name + ' Schedule';
   }]);

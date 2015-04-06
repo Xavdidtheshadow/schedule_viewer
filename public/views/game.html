@@ -1,0 +1,21 @@
+<h3> 
+  <div class="inline">{{game.team_a.rank}}. <a ui-sref="team({id:game.team_a._id})">{{game.team_a.name}}</a> </div>
+  <div class="inline"> vs </div>
+  <div class="inline"> {{game.team_b.rank}}. <a ui-sref="team({id:game.team_b._id})">{{game.team_b.name}}</a> </div>
+</h3>
+
+<p ng-if="game.head_referee">
+  Head Referee: <a ui-sref="ref({id: game.head_referee._id})">{{game.head_referee.name}}</a> 
+</p>
+<p ng-if="game.snitch">
+  Snitch: <a ui-sref="ref({id:game.snitch._id})">{{game.snitch.name}}</a> 
+</p>
+
+<p> Crew </p>
+<ul>
+  <li ng-repeat="ref in refs | orderBy: 'name'">
+    <a ui-sref="ref({id: ref._id})">{{ref.name}}</a> 
+  </li>
+</ul>
+
+<p> Staff </p>

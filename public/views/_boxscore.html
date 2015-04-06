@@ -1,12 +1,18 @@
 <div class="item game" ng-class="game.rt_snitch ? 'completed' : ''">
   <div class="info header">
+    <div class="icon">
+      <a ui-sref="game({id: game._id})">
+        <span class="glyphicon glyphicon-info-sign"></span>
+      </a>
+    </div>
     <div> 
       <a ui-sref="pitch({query: game.pitch})">
         Pitch {{game.pitch + 1}} 
       </a>
     </div>
     <div> {{$root.timeslots[game.timeslot]}} </div>
-    <div ng-if="game.duration !== 0"> {{game.duration}} </div>
+    <!-- idk if I want to show duration on every page- could be confusing -->
+    <!-- <div ng-if="game.duration !== 0"> {{game.duration}} </div> -->
   </div>
   <div class="info header cols">
     <div class="info split">
@@ -30,7 +36,11 @@
   </div>
   <div class="info cols">
     <div class="info split">
-      <div>HR</div>
+      <div>Snitch</div>
+      <div> <a ui-sref="ref({id: game.snitch._id})">{{game.snitch.name}}</a> </div>
+    </div>
+    <div class="info split">
+      <div>Head Referee</div>
       <div> <a ui-sref="ref({id: game.head_referee._id})">{{game.head_referee.name}}</a> </div>
     </div>
     <div class="info split">

@@ -9,6 +9,7 @@ body {
     @include tablet {
         padding: 30px;
     }
+    padding-bottom: 15px;
 }
 
 .navbar {
@@ -39,16 +40,26 @@ body {
     }
 }
 
+// this is only here becuase using the boxscore in ng-repeat means 
+.box-holder {
+    width: 100%;
+    @include tablet {
+        width: 200px;
+    }
+}
+
 // the goods
 .game {
     border: 1px dashed $blue;
     padding: 10px;
     margin-top: 10px;
+    // feels a little claustrophobic on mobile, so line height goes up
+    line-height: 2em;
     width: 100%;
-    // background-color: pink;
     @include tablet {
         width: 200px;
-        margin-left: 3px;
+        margin-left: 5px;
+        line-height: inherit;
     }
 
     a {
@@ -87,6 +98,12 @@ body {
         border-bottom: 1px solid $blue;
         padding-bottom: 5px;
         margin-bottom: 5px;
+
+        .icon a {
+            // flex: 2;
+            border-bottom: none;
+
+        }
     }
 
     .footer {
@@ -102,6 +119,12 @@ body {
     }
 }
 
+.inline {
+    padding: 5px 0 5px 0;
+    @include tablet {
+        display: inline;
+    }
+}
 
 .flexbox {
     display: flex;
@@ -113,7 +136,7 @@ body {
         align-items: center;
     }
 
-    border: 1px solid $blue;
+    border: 1px dotted $blue;
     
     flex-wrap: wrap;
     padding: 0 10px 10px 10px;

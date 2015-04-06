@@ -1,7 +1,6 @@
 <h2> Pitch {{games[0].pitch + 1}} Schedule </h2>
 
 <div class="flexbox no-border">
-  <div ng-repeat="game in games | orderBy: 'timeslot'">
-    <boxscore game="game"></boxscore>
-  </div>
+  <boxscore game="game" class="box-holder" ng-repeat="game in games | orderBy: 'timeslot'">
+  </boxscore>
 </div>

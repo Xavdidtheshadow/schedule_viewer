@@ -1,6 +1,6 @@
 <h1> Regsitered Teams </h1>
 <div class="vertbox">
   <div class="listitem" ng-repeat="team in teams | orderBy: 'name'">
-    <a href="/team/{{team._id}}">{{team.name}}</a>
+    <a ui-sref="team({id:team._id})">{{team.name}}</a>
   </div>
 </div>

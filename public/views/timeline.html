@@ -2,9 +2,8 @@
   <div ng-repeat="ts in games">
     <h2> {{timeslots[ts[0].timeslot]}} </h2>
     <div class="flexbox">
-      <div ng-repeat="game in ts | orderBy: ['pitch']">
-        <boxscore game="game"></boxscore>
-      </div>
+      <boxscore class="box-holder" ng-repeat="game in ts | orderBy: ['pitch']" game="game">
+      </boxscore>
     </div>
   </div>
 </div>
