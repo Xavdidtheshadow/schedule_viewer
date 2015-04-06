@@ -18,4 +18,6 @@
   </li>
 </ul>
 
-<p> Staff </p>
+<p ng-if="game.staff"> 
+  Staff: <a ui-sref="team({id:game.staff._id})">{{game.staff.name}}</a>
+</p>
