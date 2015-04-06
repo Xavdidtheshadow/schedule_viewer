@@ -1,6 +1,19 @@
-<h1> {{team.name}} </h1>
+<h2> 
+  {{team.rank}}. {{team.name}}
+</h2>
 
 <h3> Schedule </h3>
-<div ng-repeat="game in games | orderBy: 'timeslot'">
-  <boxscore game="game"></boxscore>
+<div class="vertbox skinny">
+  <div class="bigbox split lined" ng-repeat="game in games | orderBy: 'timeslot'">
+    <div> {{$root.timeslots[game.timeslot]}} </div>
+    <div><b><a ui-sref="game({id: game._id})">
+      <span ng-if="team._id !== game.staff._id">
+        vs {{vs($index)}}
+      </span>
+      <span ng-if="team._id === game.staff._id">
+        Staffing
+      </span>
+    </a></b></div>
+    <div> Pitch {{game.pitch + 1}} </div>
+  </div>
 </div>

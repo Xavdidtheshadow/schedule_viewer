@@ -159,6 +159,14 @@ var app = angular.module('refViewer', ['ui.router'])
     $scope.games = g.games;
     $scope.team = g.team;
     $rootScope.header = $scope.team.name + ' Schedule';
+    $scope.vs = function(i){
+      if ($scope.games[i].team_a._id === $scope.team._id) {
+        return $scope.games[i].team_b.rank+'. '+$scope.games[i].team_b.name;
+      }
+      else {
+        return $scope.games[i].team_a.rank+'. '+$scope.games[i].team_a.name;
+      }
+    };
   }])
   .controller('RefsController', ['$rootScope','$scope', 'refs', function($rootScope, $scope, refs){
     $scope.refs = refs.data;
