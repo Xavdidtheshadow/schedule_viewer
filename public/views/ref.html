@@ -6,7 +6,10 @@
 </h2>
 
 <h3>Ref Crews</h3>
-<p>{{ref.crews.join(', ')}}</p>
+<div ng-repeat="crew in ref.crews">
+  <a ui-sref="crew({id: crew})">{{crew}}</a>
+</div>
+<!-- <p>{{ref.crews.join(', ')}}</p> -->
 
 <h3> Schedule </h3>
 <div class="vertbox skinny">
@@ -14,7 +17,7 @@
     <div> {{$root.timeslots[game.timeslot]}} </div>
     <div><b><a ui-sref="game({id: game._id})">
       <span ng-if="ref._id === game.head_referee._id">
-        Head Refffing
+        Head Reffing
       </span>
       <span ng-if="ref._id === game.snitch._id">
         Snitching

@@ -46,7 +46,7 @@
   </div>
   <!-- Crew -->
   <div class="bigbox" ng-if="game.crews">
-    <div> Crew ({{game.crews.join('/')}})</div>
+    <div> Crew (<a ui-sref="crew({id: crew})" ng-repeat="crew in game.crews">{{crew}} </a>)</div>
       <div class="little vertbox">
         <!-- i need this BR if the first ref has a long name -->
         <!-- <br/> -->

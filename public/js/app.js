@@ -133,7 +133,8 @@ var app = angular.module('refViewer', ['ui.router'])
   .controller('TimelineController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
     $scope.timeslots = $rootScope.timeslots;
     $rootScope.header = 'WC8 Timeline';
-
+    $scope.directions = ['Newest First', 'Oldest First'];
+    $scope.d = 0;
     var g = games.data;
     
     $scope.games = g.reduce(function (mapped, item) {
@@ -143,7 +144,13 @@ var app = angular.module('refViewer', ['ui.router'])
 
       mapped[item.timeslot].push(item);
       return mapped;
-    }, []);
+    }, []).reverse();
+
+    $scope.flip = function(){
+      $scope.games.reverse();
+      if($scope.d === 0){$scope.d = 1;}
+      else{$scope.d = 0;}
+    };
   }])
   .controller('PitchController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
     $scope.games = games.data;

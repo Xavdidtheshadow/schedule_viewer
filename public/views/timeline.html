@@ -1,3 +1,9 @@
+<div>
+  {{directions[d]}}
+  <a ng-click="flip()">
+    (Reverse)
+  </a>  
+</div>
 <div class="vertbox">
   <div ng-repeat="ts in games">
     <h2> {{timeslots[ts[0].timeslot]}} </h2>

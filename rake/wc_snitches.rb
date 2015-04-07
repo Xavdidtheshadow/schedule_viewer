@@ -6,7 +6,7 @@
   "Anthony Hawkins",
   "Wyatt Minton",
   "Tanner Morris",
-  "Eric Pagaoda",
+  "Eric Pagoada",
   "Sam Frost",
   "Michael Malakoff", # end g0
   "Mason Kuzmich",
