@@ -128,7 +128,7 @@ body {
   border: none; }
   @media screen and (min-width: 768px) {
     .skinny {
-      width: 22%; } }
+      width: 30%; } }
 
 .completed {
   border: 1px solid #1966ab; }

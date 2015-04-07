@@ -1,0 +1,42 @@
+@snitches = [
+  "Benjamin Tunick",
+  "Nick Sorrentino",
+  "Joey Galtelli",
+  "Tyler Jewell",
+  "Anthony Hawkins",
+  "Wyatt Minton",
+  "Tanner Morris",
+  "Eric Pagaoda",
+  "Sam Frost",
+  "Michael Malakoff", # end g0
+  "Mason Kuzmich",
+  "George Williams",
+  "Brian Waldron",
+  "Taylor Tracy",
+  "Kevin Edelmann",
+  "Brandon Richardson",
+  "James McBrayer",
+  "Jarrod Bailey",
+  "Matthew Cooper",
+  "Keller Stevens", # end g1
+  "Craig Garrison",
+  "Luis Lucas-Tzun",
+  "Kyle Judkins",
+  "Chris Champitto",
+  "Meyhad Mozaffar",
+  "Sarah MacLeod",
+  "Arthur Hatch",
+  "Ryan Scott",
+  "Vincent Berrios",
+  "Steven Gralinski", # end g2
+  "Gabriel Garcez",
+  "Dakota Briggs",
+  "Stew Driflot",
+  "Nathan Love",
+  "Brian Davis",
+  "Jared Rohrer",
+  "Marcus Toomey",
+  "Gabe Unick",
+  "Michael Johnson", # end g3
+  "Joel Johnson"
+]

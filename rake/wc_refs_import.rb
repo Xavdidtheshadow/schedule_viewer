@@ -4,7 +4,7 @@ require 'pp'
 require 'csv'
 require 'bson'
 
-# creates refs
+# creates people
 
 
 url = 'https://quidapi.herokuapp.com'
@@ -21,7 +21,7 @@ end
 # pp teams
 # exit
 
-refs_file = CSV.open('ref_info_master.csv')
+refs_file = CSV.open('wc_ref_info.csv')
 # burn the headers
 refs_file.readline
 
@@ -34,12 +34,12 @@ refs_file.each do |line|
   else
     crews = [line[6]]
   end
-  cert = {}
   begin 
     cert = {
       ar: line[9]["Ass"] ? true : false,
       sr: line[9]["Snitch Referee"] ? true : false,
-      hr: line[9]["Head"] ? true : false
+      hr: line[9]["Head"] ? true : false,
+      snitch: line[9]['Runner'] ? true : false
     }
   rescue
     cert = {ar: true, sr: true}
