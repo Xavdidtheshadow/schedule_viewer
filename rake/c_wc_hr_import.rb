@@ -5,9 +5,12 @@ require_relative 'wc_snitches'
 
 # adds HR and SNITCH to each game
 
+url = 'https://quidapi.herokuapp.com'
+url = 'http://localhost:1337'
+
 # use after to do this later
-games = HTTParty.get("http://quidapi.herokuapp.com/games").parsed_response
-people = HTTParty.get("http://quidapi.herokuapp.com/people").parsed_response
+games = HTTParty.get("#{url}/games").parsed_response
+people = HTTParty.get("#{url}/people").parsed_response
 
 names = {}
 
@@ -18,12 +21,12 @@ end
 games.each_with_index do |g, i|
   # puts g
   payload = {id: g['_id'], hr: names[@hrs[i]]}
-  r = HTTParty.put("http://quidapi.herokuapp.com/games/hr", body: payload, query: ENV['QUID_API_KEY'])
+  r = HTTParty.put("#{url}/games/hr", body: payload, query: ENV['QUID_API_KEY'])
 
   puts @snitches[i] unless names[@snitches[i]]
   payload = {id: g['_id'], snitch: names[@snitches[i]]}
   pp payload
-  r = HTTParty.put("http://quidapi.herokuapp.com/games/snitch", body: payload, query: ENV['QUID_API_KEY'])
+  r = HTTParty.put("#{url}/games/snitch", body: payload, query: ENV['QUID_API_KEY'])
   puts r
 end
 

@@ -49,7 +49,7 @@
 2.5|Baylor
 2.34|Harvard
 2.6|Tufts
-2.33|Purdue
+2.33|Wooster
 2.7|Bowling Green
 2.35|Long Beach F.Q.
 2.8|British Columbia

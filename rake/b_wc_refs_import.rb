@@ -5,11 +5,8 @@ require 'csv'
 require 'bson'
 
 # creates people
-
-
 url = 'https://quidapi.herokuapp.com'
-# url = 'http://localhost:1337'
-
+url = 'http://localhost:1337'
 
 teams_dump = HTTParty.get("#{url}/teams").parsed_response
 
