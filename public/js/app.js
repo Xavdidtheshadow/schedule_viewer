@@ -10,13 +10,15 @@ var app = angular.module('refViewer', ['ui.router'])
 
       // generate an api call from endpoint
       // this got out of hand quickly
-      gen = function(endpoint, tail){
+      gen = function(endpoint, tail, query){
         return ['$http', '$stateParams', function($http, $stateParams){
             var id = '';
+            var q = '';
             tail = typeof tail !== 'undefined' ? tail : '';
             if ($stateParams.id) {id += '/' + $stateParams.id;}
-            if ($stateParams.query) {endpoint += $stateParams.query;}
-            return $http.get(root + endpoint + id + tail);
+            if ($stateParams.pitch) {q = query + $stateParams.pitch;}
+            console.log("in endpoint", endpoint);
+            return $http.get(root + endpoint + id + tail + q);
           }];
       };
 
@@ -30,11 +32,11 @@ var app = angular.module('refViewer', ['ui.router'])
           }
         })
         .state('pitch', {
-          url: '/pitch/:query',
+          url: '/pitch/:pitch',
           templateUrl: 'views/pitch.html',
           controller: 'PitchController',
           resolve: {
-            games: gen('games?pitch=')
+            games: gen('games','','?pitch=')
           }
         })
         .state('teams', {
