@@ -87,6 +87,11 @@ var app = angular.module('refViewer', ['ui.router'])
           resolve: {
             game: gen('games','?crews=1')
           }
+        })
+        .state('login', {
+          url: '/login',
+          templateUrl: 'views/login.html',
+          controller: 'LoginController'
         });
 
       $urlRouterProvider.otherwise('/');
@@ -125,6 +130,20 @@ var app = angular.module('refViewer', ['ui.router'])
       controller: 'BoxscoreController'
     };
   })
+  .factory('auth', ['$http', function($http){
+    var o = {
+      logged_in: true
+    };
+
+    o.login= function(creds){
+      // don't read this
+      if (creds === 'goblue') {
+        o.logged_in = true;
+      }
+    };
+
+    return o;
+  }])
   .controller('BoxscoreController', ['$scope', function($scope){
     if ($scope.game.duration > 0){
       var minutes = Math.floor($scope.game.duration / 60);
@@ -152,6 +171,14 @@ var app = angular.module('refViewer', ['ui.router'])
       $scope.games.reverse();
       if($scope.d === 0){$scope.d = 1;}
       else{$scope.d = 0;}
+    };
+  }])
+  .controller('LoginController', ['$scope', '$state', 'auth', function($scope, $state, auth){
+    $scope.go = function(){
+      auth.login($scope.creds);
+      if(auth.logged_in) {
+        $state.go('timeline');
+      }
     };
   }])
   .controller('PitchController', ['$rootScope','$scope', 'games', function($rootScope, $scope, games){
@@ -220,8 +247,11 @@ var app = angular.module('refViewer', ['ui.router'])
     }
     $rootScope.header = $scope.crew + ' Schedule';
   }])
-  .controller('GameController', ['$rootScope','$scope', 'game', function($rootScope, $scope, game){
+  .controller('GameController', ['$rootScope','$scope', 'auth', 'game', function($rootScope, $scope, auth, game){
+    if (auth.logged_in){$scope.message = 'in';}
+    else {$scope.message = 'nope';}
     var g = game.data;
+    $scope.auth = auth;
     $scope.refs = g.refs;
     $scope.game = g.game;
     if ($scope.game.duration > 0){
@@ -229,5 +259,9 @@ var app = angular.module('refViewer', ['ui.router'])
       var seconds = $scope.game.duration - minutes * 60;
       $scope.game.duration = [minutes, seconds].join(':');
     }
+
+    $scope.make_hr = function(){
+      // some sort of database call
+    };
     // $rootScope.header = $scope.ref.name + ' Schedule';
   }]);

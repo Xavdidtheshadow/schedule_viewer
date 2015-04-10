@@ -27,7 +27,7 @@
   <!-- pitch -->
   <div class="bigbox">
     <div> Where/When </div>
-    <div> Pitch {{game.pitch + 1}} @ {{$root.timeslots[game.timeslot]}} EDT</div>
+    <div> <a ui-sref="pitch({pitch: game.pitch})">Pitch {{game.pitch + 1}}</a> @ {{$root.timeslots[game.timeslot]}} EDT</div>
   </div>
   <!-- duration -->
   <div class="bigbox" ng-if="duration > 0">
@@ -51,7 +51,12 @@
         <!-- i need this BR if the first ref has a long name -->
         <!-- <br/> -->
         <div class="right" ng-repeat="ref in refs | orderBy: 'name'">
-          <a ng-if="ref._id !== game.head_referee._id" ui-sref="ref({id: ref._id})">{{ref.name}}</a> 
+          <div ng-if="ref._id !== game.head_referee._id">
+            <a ui-sref="ref({id: ref._id})">{{ref.name}}</a> 
+            <a ng-show="auth.logged_in" ng-click="make_hr()">
+              <span class="glyphicon glyphicon-screenshot"></span>
+            </a>
+          </div>
         </div>
       </div>
   </div>
