@@ -6,7 +6,7 @@ require_relative 'wc_snitches'
 # adds HR and SNITCH to each game
 
 url = 'https://quidapi.herokuapp.com'
-url = 'http://localhost:1337'
+# url = 'http://localhost:1337'
 
 # use after to do this later
 games = HTTParty.get("#{url}/games").parsed_response

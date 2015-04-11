@@ -132,7 +132,7 @@ var app = angular.module('refViewer', ['ui.router'])
   })
   .factory('auth', ['$http', function($http){
     var o = {
-      logged_in: true
+      logged_in: false
     };
 
     o.login= function(creds){
@@ -247,7 +247,7 @@ var app = angular.module('refViewer', ['ui.router'])
     }
     $rootScope.header = $scope.crew + ' Schedule';
   }])
-  .controller('GameController', ['$rootScope','$scope', 'auth', 'game', function($rootScope, $scope, auth, game){
+  .controller('GameController', ['$rootScope','$scope', '$state', '$http', 'auth', 'game', function($rootScope, $scope, $state, $http, auth, game){
     if (auth.logged_in){$scope.message = 'in';}
     else {$scope.message = 'nope';}
     var g = game.data;
@@ -260,8 +260,12 @@ var app = angular.module('refViewer', ['ui.router'])
       $scope.game.duration = [minutes, seconds].join(':');
     }
 
-    $scope.make_hr = function(){
+    $scope.make_hr = function(gid, hrid){
       // some sort of database call
+      $http.post("https://quidapi.herokuapp.com/games/hr?api_key=qD8jnrWPc", {id: gid, hr: hrid}).then(function(){
+        $state.reload();
+      });
+
     };
     // $rootScope.header = $scope.ref.name + ' Schedule';
   }]);

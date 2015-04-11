@@ -51,7 +51,7 @@ refs_file.each do |line|
     phone: line[3] ? line[3].tr('- .()','') : nil,
     certifications: cert,
     crews: crews,
-    team: teams[line[5]],
+    team: teams[line[5].strip],
   }
   # puts 'requesting'
   r = HTTParty.post("#{url}/people", body: ref, query: {api_key: ENV['QUID_API_KEY']})

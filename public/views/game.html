@@ -53,7 +53,7 @@
         <div class="right" ng-repeat="ref in refs | orderBy: 'name'">
           <div ng-if="ref._id !== game.head_referee._id">
             <a ui-sref="ref({id: ref._id})">{{ref.name}}</a> 
-            <a ng-show="auth.logged_in" ng-click="make_hr()">
+            <a ng-show="auth.logged_in" ng-click="make_hr(game._id, ref._id)">
               <span class="glyphicon glyphicon-screenshot"></span>
             </a>
           </div>

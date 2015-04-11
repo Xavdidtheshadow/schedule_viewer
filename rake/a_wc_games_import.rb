@@ -11,7 +11,7 @@ def make_crews(f, pc, crews)
 end
 
 url = 'https://quidapi.herokuapp.com'
-url = 'http://localhost:1337'
+# url = 'http://localhost:1337'
 
 require_relative 'wc_grs'
 
