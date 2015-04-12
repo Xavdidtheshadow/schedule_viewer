@@ -92,6 +92,14 @@ var app = angular.module('refViewer', ['ui.router'])
           url: '/login',
           templateUrl: 'views/login.html',
           controller: 'LoginController'
+        })
+        .state('clay', {
+          url: '/clay',
+          templateUrl: 'views/clay.html',
+          controller: 'ClayController',
+          resolve: {
+            crews: gen('crews')
+          }
         });
 
       $urlRouterProvider.otherwise('/');
@@ -100,22 +108,32 @@ var app = angular.module('refViewer', ['ui.router'])
   .run(['$rootScope', function($rootScope){
     // this is basically a global
     $rootScope.timeslots = [
-      "9:00 AM", 
-      "9:40 AM", 
-      "10:40 AM", 
-      "11:20 AM", 
-      "12:20 PM", 
-      "1:00 PM", 
-      "2:00 PM",
-      "2:40 PM", 
-      "4:00 PM", 
-      "4:40 PM", 
-      "5:40 PM", 
-      "6:20 PM", 
-      "7:20 PM", 
-      "8:00 PM", 
-      "9:00 PM", 
-      "9:40 PM" 
+      "(SAT) 9:00 AM", 
+      "(SAT) 9:40 AM", 
+      "(SAT) 10:40 AM", 
+      "(SAT) 11:20 AM", 
+      "(SAT) 12:20 PM", 
+      "(SAT) 1:00 PM", 
+      "(SAT) 2:00 PM",
+      "(SAT) 2:40 PM", 
+      "(SAT) 4:00 PM", 
+      "(SAT) 4:40 PM", 
+      "(SAT) 5:40 PM", 
+      "(SAT) 6:20 PM", 
+      "(SAT) 7:20 PM", 
+      "(SAT) 8:00 PM", 
+      "(SAT) 9:00 PM", 
+      "(SAT) 9:40 PM",
+      "(SUN) 9:00 AM", 
+      "(SUN) 9:40 AM", 
+      "(SUN) 10:40 AM", 
+      "(SUN) 11:20 AM", 
+      "(SUN) 1:00 PM", 
+      "(SUN) 2:20 PM", 
+      "(SUN) 3:40 PM", 
+      "(SUN) 5:00 AM", 
+      "(SUN) 5:40 AM", 
+      "(SUN) 7:00 PM"
     ];
 
     // $rootScope.lastName = function(o) {
@@ -268,4 +286,8 @@ var app = angular.module('refViewer', ['ui.router'])
 
     };
     // $rootScope.header = $scope.ref.name + ' Schedule';
+  }])
+  .controller('ClayController', ['$rootScope','$scope', 'crews', function($rootScope, $scope, crews){
+    $scope.crews = crews.data;
+    $rootScope.header = 'WC8 Refs';
   }]);

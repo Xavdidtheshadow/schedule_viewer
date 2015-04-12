@@ -1,0 +1,28 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <th>
+      Team
+    </th>
+    <th>
+      Crew
+    </th>
+    <th ng-repeat="ts in root.timeslots">
+      {{ts}}
+    </th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="crew in crews">
+      <td>
+        <span ng-show="crew.team.name !== 'NPR'">
+          {{crew.team.name}}
+        </span>
+        <span ng-show="crew.team.name === 'NPR'">
+          {{crew.hr.name}}
+        </span>
+      </td>
+      <td>
+        {{crew._id}}
+      </td>
+    </tr>
+  </tbody>
+</table>
