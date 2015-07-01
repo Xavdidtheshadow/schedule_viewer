@@ -6,7 +6,7 @@ require 'bson'
 
 # creates people
 url = 'https://quidapi.herokuapp.com'
-url = 'http://localhost:1337'
+# url = 'http://localhost:1337'
 
 teams_dump = HTTParty.get("#{url}/teams").parsed_response
 
@@ -54,7 +54,7 @@ refs_file.each do |line|
     team: teams[line[5].strip],
   }
   # puts 'requesting'
-  r = HTTParty.post("#{url}/people", body: ref, query: {api_key: ENV['QUID_API_KEY']})
+  r = HTTParty.post("#{url}/people", body: ref.to_json, query: {api_key: ENV['QUID_API_KEY']}, headers: {"Content-Type"=>"application/json"})
   puts r.parsed_response
 
 end

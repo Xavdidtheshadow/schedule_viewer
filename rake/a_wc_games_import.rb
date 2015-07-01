@@ -11,13 +11,22 @@ def make_crews(f, pc, crews)
 end
 
 url = 'https://quidapi.herokuapp.com'
-# url = 'http://localhost:1337'
+url = 'http://localhost:1337'
 
 require_relative 'wc_grs'
 
 ids = {}
-build = true
+build = false
 # fetch or build teams
+
+people = HTTParty.get("#{url}/people").parsed_response
+
+names = {}
+tn = {}
+
+people.each do |r|
+  names[r['name']] = r['_id']
+end
 
 if build
   # BUILD
@@ -40,9 +49,12 @@ else
   teams_dump = HTTParty.get("#{url}/teams").parsed_response
   teams_dump.each do |t|
     ids["#{t['flight']}.#{t['rank']}"] = t['_id']
+    # tn[t['name']] = "#{t['flight']}.#{t['rank']}"
   end
 end
 
+# pp @grs.map{|i| i.map{|j| tn[j]}}
+# exit
 
 puts "game time!"
 
@@ -54,18 +66,23 @@ games_file.each do |g|
   time = info.split('f').last.to_i
 
   teams = g.split('|')[1].chomp.split('v')
+  hr = g.split('|')[2].chomp
+  sni = g.split('|')[3].chomp
   c = g.split('|').last.chomp.split('')
 
   payload = {
-    timeslot: time, 
-    pitch: pc % 10, 
+    timeslot: time, pitch: pc % 10, 
     team_a: ids["#{flight}.#{teams.first}"], 
     team_b: ids["#{flight}.#{teams.last}"], 
     crews: make_crews(flight, pc, c),
-    staff: ids[@staff[time][pc % 10]]
+    staff: ids[@staff[time][pc % 10]],
+    head_referee: names[hr],
+    snitch: names[sni]
   }
+  # exit
+  # USE TO_JSON AND USE APPLICATION/JSON
+  r = HTTParty.post("#{url}/games", body: payload.to_json, query: {api_key: ENV['QUID_API_KEY']}, headers: {"Content-Type"=>"application/json"})
 
-  r = HTTParty.post("#{url}/games", body: payload, query: {api_key: ENV['QUID_API_KEY']})
   pp r
   pc += 1
 end

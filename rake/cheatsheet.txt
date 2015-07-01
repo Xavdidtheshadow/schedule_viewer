@@ -1,6 +1,7 @@
-1. josh gives us matches
-2. we see which crews are available for each pitch, when
-3. pick a HR for each crew. **
-4. put teams on pitches 
-    4a. make sure last round of refs isn't playing right after
-5. upload to api
+Y    2. we see which crews are available for each pitch, when
+Y    1. josh gives us matches
+
+    3. pick a HR for each crew. **
+    4. put teams on pitches 
+Y        4a. make sure last round of refs isn't playing right after
+    5. upload to api

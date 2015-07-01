@@ -1,40 +1,20 @@
-1f0|2v39|bd|David Brownman|Clay Dockery
-1f0|8v33|bc
-1f0|9v32|ac
-1f0|12v29|ca
-1f0|7v34|bd
-1f0|1v38|bc
-1f0|4v40|cb
-1f0|6v35|ad
-1f0|3v37|ad
-1f0|5v36|cd
-1f1|16v25|ac
-1f1|18v21|ad
-1f1|19v24|bd
-1f1|13v26|ba
-1f1|17v23|ac
-1f1|14v27|ad
-1f1|20v22|ad
-1f1|10v30|bc
-1f1|11v31|bc
-1f1|15v28|ab
-2f2|4v37|bc
-2f2|2v39|bd
-2f2|11v32|cd
-2f2|1v40|da
-2f2|6v33|bc
-2f2|3v38|dc
-2f2|8v36|ad
-2f2|5v34|cd
-2f2|10v31|bd
-2f2|7v35|ad
-2f3|13v27|ad
-2f3|15v28|ca
-2f3|14v26|ab
-2f3|16v25|ab
-2f3|18v22|ad
-2f3|9v30|ab
-2f3|19v24|cb
-2f3|17v23|ab
-2f3|20v21|ac
-2f3|12v29|ab
+2f18|16v40|Jeffrey Sherman|Mason Kuzmich|cd
+2f18|5v24|Michael Clark-Pohlner|Vincent Berrios|ad
+2f18|3v13|Alex Ewton|Kevin Edelmann|bd
+2f18|2v8|Jade Schappell|Michael Johnson|de
+2f18|15v17|Jayke Archibald|Jared Rohrer|be
+2f18|25v26|Chris Seto|Nathan Love|cb
+2f18|18v23|Nick Zakoske|Keller Stevens|ba
+2f18|22v33|Julia Thomas|Celia Garthwait|ad
+2f18|27v36|Haley Black|Matt Nagel|cd
+2f18|29v31|Brandon Booth|Charlie Jordan|fc
+2f19|6v7|Alex Krall|Dakota Briggs|ae
+2f19|1v11|Alexander Amodol|Brandon Richardson|be
+2f19|35v37|John Bridstrup|Sarah MacLeod|ad
+2f19|4v34|Eric Reyes|Brian Waldron|ca
+2f19|20v30|Paxton Casey|Arthur Hatch|ca
+2f19|9v21|Hayden Applebee|Richard Crumrine|ad
+2f19|19v28|Dylan Meyer|Joel Johnson|cd
+2f19|10v39|Andrew McGregor|Meyhad Mozaffar|bec
+2f19|12v14|Joshua Mansfield|Marcus Toomey|ae
+2f19|32v38|Allie Nelson|Zach Miller|ad
